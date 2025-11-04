@@ -1,4 +1,4 @@
-package com.mes_jyproject.master.entity;
+package com.mes_jyproject.master.study.entity;
 
 import jakarta.persistence.Column;
 import lombok.Getter;

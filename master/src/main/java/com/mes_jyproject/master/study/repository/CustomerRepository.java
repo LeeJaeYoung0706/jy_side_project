@@ -1,6 +1,6 @@
-package com.mes_jyproject.master.repository;
+package com.mes_jyproject.master.study.repository;
 
-import com.mes_jyproject.master.entity.Customer;
+import com.mes_jyproject.master.study.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

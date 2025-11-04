@@ -1,4 +1,4 @@
-package com.mes_jyproject.master.dto;
+package com.mes_jyproject.master.study.dto;
 
 import lombok.Data;
 

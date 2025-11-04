@@ -1,4 +1,4 @@
-package com.mes_jyproject.master.entity;
+package com.mes_jyproject.master.study.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Getter
@@ -20,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "customer")
-public class Customer extends BaseEntity {
+public class Customer extends com.mes_jyproject.master.study.entity.BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")

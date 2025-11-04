@@ -1,4 +1,4 @@
-package com.mes_jyproject.master.controller;
+package com.mes_jyproject.master.study.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
