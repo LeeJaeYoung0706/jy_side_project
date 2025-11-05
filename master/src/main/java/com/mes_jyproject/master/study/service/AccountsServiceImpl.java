@@ -1,10 +1,13 @@
 package com.mes_jyproject.master.study.service;
 
 import com.mes_jyproject.master.study.contains.AccountsConstants;
+import com.mes_jyproject.master.study.dto.AccountsDto;
 import com.mes_jyproject.master.study.dto.CustomerDto;
 import com.mes_jyproject.master.study.entity.Accounts;
 import com.mes_jyproject.master.study.entity.Customer;
 import com.mes_jyproject.master.study.exceptions.CustomerAlreadyExistsException;
+import com.mes_jyproject.master.study.exceptions.ResourceNotFoundException;
+import com.mes_jyproject.master.study.mapper.AccountsMapper;
 import com.mes_jyproject.master.study.mapper.CustomerMapper;
 import com.mes_jyproject.master.study.repository.AccountsRepository;
 import com.mes_jyproject.master.study.repository.CustomerRepository;
@@ -52,6 +55,19 @@ public class AccountsServiceImpl implements IAccountsService {
         newAccount.setAccountType(AccountsConstants.SAVINGS);
         newAccount.setBranchAddress(AccountsConstants.ADDRESS);
         return newAccount;
+    }
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+        );
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
+        );
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        return customerDto;
     }
 
 
