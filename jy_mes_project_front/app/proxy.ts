@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const AUTH_COOKIE = "auth_token";
 const PROTECTED_PATHS = ["/middleware-guard"];
 
-export function middleware(request: NextRequest) {
+export const proxy = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
   const requiresAuth = PROTECTED_PATHS.some((path) =>
     pathname.startsWith(path)
@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
-}
+};
 
 export const config = {
   matcher: ["/middleware-guard/:path*"],
