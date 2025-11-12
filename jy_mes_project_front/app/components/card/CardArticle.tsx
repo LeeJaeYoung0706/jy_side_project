@@ -11,9 +11,9 @@ const cardArticleVariant = tv({
   `,
     variants: {
         variant: {
-            1: "bg-[var(--brand-300)] hover:bg-[var(--brand-400)]",
-            2: "bg-[var(--brand-400)] hover:bg-[var(--brand-500)]",
-            3: "bg-[var(--brand-500)] hover:bg-[var(--brand-600)]",
+            1: "bg-[var(--brand-300)] hover:bg-[var(--brand-500)]",
+            2: "bg-[var(--brand-300)] hover:bg-[var(--brand-500)]",
+            3: "bg-[var(--brand-300)] hover:bg-[var(--brand-500)]",
         },
     },
     defaultVariants: {
